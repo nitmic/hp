@@ -93,6 +93,32 @@
     <!--メイン開始-->
     <div id="main">
 
+        <!-- 1. JsRenderの読み込み -->
+        <script src="../js/plug_in/jsrender.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            // データモデルの定義
+            var item = {
+                name: "みかん",
+                price: 100,
+                weight: 60
+            };
+
+            // 2. テンプレートの定義
+            var templateText = "{{:name}}の値段は{{:price}}円です。\r\n" +
+                    "重さは{{:weight}}グラムです。";
+
+            // 3. テンプレートオブジェクトを作成
+            var template = jsviews.templates(templateText);
+
+            // 4. テンプレートとデータモデルを組み合わせてテキストを生成
+            var result = template.render(item);
+
+            // 生成したテキストをメッセージボックスに表示
+            alert(result);
+        </script>
+
+
         <!--コンテンツ開始-->
         <div id="contents_full">
 
